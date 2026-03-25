@@ -8,7 +8,6 @@ import { provideAuth } from 'angular-auth-oidc-client';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(),
-    provideAuth(authConfig)
+    provideHttpClient()
   ]
 };

@@ -1,22 +1,14 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-login',
-  template: `<p>Redirection vers la connexion...</p>`,
+  standalone: true,
+  template: `<p>Connexion en cours...</p>`,
 })
-export class LoginComponent implements OnInit {
-  private readonly oidcSecurityService = inject(OidcSecurityService);
-  private readonly router = inject(Router);
-
-  ngOnInit(): void {
-    this.oidcSecurityService.isAuthenticated$.subscribe(({ isAuthenticated }) => {
-      if (isAuthenticated) {
-        this.router.navigate(['/']);
-      } else {
-        this.oidcSecurityService.authorize();
-      }
-    });
+export class LoginComponent {
+  private readonly authService = inject(AuthService);
+  ngOnInit() {
+    this.authService.login();
   }
 }
