@@ -2,12 +2,7 @@
   <h1>Gestion des tâches</h1>
 
   <div class="form">
-    <input
-      type="text"
-      [(ngModel)]="newTaskTitle"
-      placeholder="Nouvelle tâche"
-      (keyup.enter)="addTask()"
-    />
+    <input type="text" [(ngModel)]="newTaskTitle" placeholder="Nouvelle tâche" (keyup.enter)="addTask()" />
     <button type="button" (click)="addTask()">Ajouter</button>
   </div>
 

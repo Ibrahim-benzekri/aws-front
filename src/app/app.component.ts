@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
-
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -9,7 +8,7 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
   template: '<router-outlet></router-outlet>',
   styleUrl: './app.css'
 })
-export class App implements OnInit {
+export class AppComponent implements OnInit {
   private readonly oidcSecurityService = inject(OidcSecurityService);
 
   ngOnInit(): void {
